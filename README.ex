@@ -27,6 +27,11 @@ Configuration
 
 The configuration options will be listed on the charm store, however If you're making assumptions or opinionated decisions in the charm (like setting a default administrator password), you should detail that here so the user knows how to change it immediately, etc.
 
+License
+-------
+
+This charm is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0). 
+
 
 Contact Information
 -------------------
