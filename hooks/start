@@ -6,4 +6,4 @@ apt-get install -y ruby
 
 juju-log "Starting Virgo"
 
-/var/virgo/start.sh
+PORT=8080 /var/virgo/start.sh

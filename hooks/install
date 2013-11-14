@@ -5,7 +5,10 @@ set -e # If any command fails, stop execution of the hook with that error
 SCRIPT_DIR=$( cd "$( dirname "$0" )" && pwd )
 BUILDPACK=$SCRIPT_DIR/../vendor/virgo-buildpack
 
-apt-get install -y ruby
+apt-get install -y ruby git
+
+gem install bundler
+bundle install --gemfile $BUILDPACK/Gemfile
 
 # Grab Vanilla from upstream.
 juju-log "Invoking the Virgo buildpack compile script"
