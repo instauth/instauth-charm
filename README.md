@@ -23,6 +23,6 @@ This charm is released under version 2.0 of the [Apache License](http://www.apac
 Contact Information
 -------------------
 
-Author: Glyn Normington
-Report bugs at: https://github.com/glyn/virgo-charm
-Location: https://github.com/glyn/virgo-charm
+* Author: Glyn Normington
+* Report bugs at: https://github.com/glyn/virgo-charm
+* Location: https://github.com/glyn/virgo-charm
