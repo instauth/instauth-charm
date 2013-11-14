@@ -1,17 +1,8 @@
 name: virgo
-summary: <Fill in summary here>
-maintainer: Glyn Normington <Glyn.Normington@hit-nxdomain.opendns.com>
+summary: Eclipe Virgo OSGi runtime container charm
+maintainer: Glyn Normington
 description: |
-  <Multi-line description here>
+  See git@github.com:glyn/virgo-charm.git
 categories:
-  - misc
+  - app-servers
 subordinate: false
-provides:
-  provides-relation:
-    interface: interface-name
-requires:
-  requires-relation:
-    interface: interface-name
-peers:
-  peer-relation:
-    interface: interface-name
