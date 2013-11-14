@@ -6,4 +6,4 @@ apt-get install -y ruby
 
 juju-log "Starting Virgo"
 
-./start.sh
+/var/virgo/start.sh

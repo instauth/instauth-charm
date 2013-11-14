@@ -2,17 +2,27 @@
 
 set -e # If any command fails, stop execution of the hook with that error
 
+SCRIPT_DIR=$( cd "$( dirname "$0" )" && pwd )
+BUILDPACK=$SCRIPT_DIR/../vendor/virgo-buildpack
+
 apt-get install -y ruby
 
 # Grab Vanilla from upstream.
 juju-log "Invoking the Virgo buildpack compile script"
 
-cp -r vendor/virgo-buildpack/overlay-sample/* .
+if [ -f /var/virgo ]; then
+  rm -rf /var/virgo
+fi
 
-vendor/virgo-buildpack/bin/compile . /tmp
+mkdir -p /var/virgo
 
-vendor/virgo-buildpack/bin/release . >start.sh
+# For now, give Virgo something to deploy
+cp -r vendor/virgo-buildpack/overlay-sample/* /var/virgo
 
-chmod +x start.sh
+$BUILDPACK/bin/compile /var/virgo /tmp
 
-juju-log "Virgo installed"
+$BUILDPACK/bin/release /var/virgo >/var/virgo/start.sh
+
+chmod +x /var/virgo/start.sh
+
+juju-log "Virgo installed in /var/virgo"
