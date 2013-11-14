@@ -22,6 +22,9 @@ mkdir -p /var/virgo
 # For now, give Virgo something to deploy
 cp -r vendor/virgo-buildpack/overlay-sample/* /var/virgo
 
+# Get buildpack debug logging
+export JBP_LOG_LEVEL=DEBUG
+
 $BUILDPACK/bin/compile /var/virgo /tmp
 
 $BUILDPACK/bin/release /var/virgo >/var/virgo/start.sh
