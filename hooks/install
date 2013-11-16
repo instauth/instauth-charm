@@ -6,7 +6,12 @@ juju-log "Entered the Virgo charm install hook"
 
 BUILDPACK=$CHARM_DIR/vendor/virgo-buildpack
 
-apt-get install -y ruby rubygems git
+# Uninstall Ruby 1.8
+# gem1.8 list | cut -d" " -f1 | xargs sudo gem1.8 uninstall -aIx
+# sudo apt-get remove libruby1.8 ruby1.8 ruby1.8-dev rubygems1.8
+#dpkg --get-selections |grep ruby
+
+apt-get install -y ruby1.9.3 make unzip git
 
 gem install bundler
 bundle install --gemfile $BUILDPACK/Gemfile
