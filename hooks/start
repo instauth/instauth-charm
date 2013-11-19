@@ -2,8 +2,12 @@
 
 set -e # If any command fails, stop execution of the hook with that error
 
+PORT=8080
+juju-log "Opening port $1 for Virgo"
+open-port $PORT
+
 juju-log "Starting Virgo"
 
-#PORT=8080 /var/virgo/start.sh
 cd /var/virgo
-JAVA_HOME=$PWD/.java JAVA_OPTS="-Dhttp.port=8080 -XX:MaxPermSize=64M -XX:OnOutOfMemoryError=./.buildpack-diagnostics/killjava" .virgo/bin/startup.sh -clean
+JAVA_HOME=$PWD/.java JAVA_OPTS="-Dhttp.port=$PORT -XX:MaxPermSize=64M -XX:OnOutOfMemoryError=./.buildpack-diagnostics/killjava" .virgo/bin/startup.sh -clean
+
