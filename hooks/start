@@ -11,4 +11,4 @@ juju-log "Starting Virgo"
 cd /var/virgo
 # TODO: drop root privileges
 JAVA_HOME=$PWD/.java JAVA_OPTS="-Dhttp.port=$PORT -XX:MaxPermSize=64M -XX:OnOutOfMemoryError=./.buildpack-diagnostics/killjava" nohup .virgo/bin/startup.sh -clean&
-
+echo $! >/var/virgo/.pid
