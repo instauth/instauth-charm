@@ -4,7 +4,7 @@ set -e # If any command fails, stop execution of the hook with that error
 
 juju-log "Stopping Virgo"
 
-cat /var/virgo/.pid | xargs kill -9
-rm /var/virgo/.pid
+cat /var/www/virgo/.pid | xargs kill -9
+rm /var/www/virgo/.pid
 
 juju-log "Stopped Virgo"

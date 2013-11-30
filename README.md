@@ -23,7 +23,7 @@ This charm is released under version 2.0 of the [Apache License](http://www.apac
 Work in Progress
 ----------------
 
-This charm is a prototype. Please refer to the issues on github for known bugs and restrictions.
+This charm is a prototype. Please refer to the [issues](https://github.com/glyn/virgo-charm/issues) on github for known bugs and restrictions.
 
 Pull requests are welcomed!
 

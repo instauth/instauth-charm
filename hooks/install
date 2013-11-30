@@ -19,22 +19,22 @@ bundle install --gemfile $BUILDPACK/Gemfile
 # Grab Vanilla from upstream.
 juju-log "Invoking the Virgo buildpack compile script"
 
-if [ -f /var/virgo ]; then
-  rm -rf /var/virgo
+if [ -f /var/www/virgo ]; then
+  rm -rf /var/www/virgo
 fi
 
-mkdir -p /var/virgo
+mkdir -p /var/www/virgo
 
 # For now, give Virgo something to deploy
-cp -r vendor/virgo-buildpack/overlay-sample/* /var/virgo
+cp -r vendor/virgo-buildpack/overlay-sample/* /var/www/virgo
 
 # Get buildpack debug logging
 export JBP_LOG_LEVEL=DEBUG
 
-$BUILDPACK/bin/compile /var/virgo /tmp
+$BUILDPACK/bin/compile /var/www/virgo /tmp
 
-$BUILDPACK/bin/release /var/virgo >/var/virgo/start.sh
+$BUILDPACK/bin/release /var/www/virgo >/var/www/virgo/start.sh
 
-chmod +x /var/virgo/start.sh
+chmod +x /var/www/virgo/start.sh
 
-juju-log "Virgo installed in /var/virgo"
+juju-log "Virgo installed in /var/www/virgo"
