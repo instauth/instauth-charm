@@ -18,7 +18,14 @@ The charm is configured via its embedded Virgo buildpack (in `vendor/virgo-build
 License
 -------
 
-This charm is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0). 
+This charm is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
+
+Work in Progress
+----------------
+
+This charm is a prototype. Please refer to the issues on github for known bugs and restrictions.
+
+Pull requests are welcomed!
 
 Contact Information
 -------------------
