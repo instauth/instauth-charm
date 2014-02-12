@@ -1,0 +1,17 @@
+name: instauth
+summary: A Virgo based Instauth Subordinate Charm
+maintainer: Florian Waibel <fwaibel@eclipsesource.com>
+description: |
+  The Instauth Charm will download an adapter from the repo,
+  execute it inside the connected charm and then make the
+  charm talk to any charm that implements the Auth relation.
+categories:
+  - security
+subordinate: true
+requires:
+  sso-host:
+    interface: sso-config
+    scope: container
+provides:
+  Auth:
+    interface: saml

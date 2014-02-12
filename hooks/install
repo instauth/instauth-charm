@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+juju-log "TODO: create install hook for instauth subordinate charm"
