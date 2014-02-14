@@ -1,8 +1,8 @@
 #!/bin/bash
-export LOCAL_CHARM_REPO=${LOCAL_CHARM_REPO-~/charms/precise}
+export LOCAL_CHARM_REPO=${LOCAL_CHARM_REPO-${HOME}/charms}
+export CHARM_HOME=$(dirname "$0")/..
 
 export CHARM_NAME=instauth
-export CHARM_HOME=instauth-charm
 
 echo "Refreshing charm ${CHARM_NAME} from ${CHARM_HOME} into ${LOCAL_CHARM_REPO}:"
 
