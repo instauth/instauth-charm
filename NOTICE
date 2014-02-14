@@ -1,0 +1,8 @@
+   Instauth Charm
+   Copyright 2014, Florian Waibel
+
+Acknowledgment - the basis for this charm is:
+   Eclipse Virgo Ubuntu Juju Charm [1]
+   Copyright 2013, Glyn Normington
+
+[1] https://github.com/glyn/virgo-charm/commit/66fe4fbe9cf7a81e72bebbf2462189e2c9966524

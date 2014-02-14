@@ -1,5 +1,40 @@
 #!/bin/bash
 
-set -e
+set -e # If any command fails, stop execution of the hook with that error
 
-juju-log "TODO: create install hook for instauth subordinate charm"
+juju-log "Entered the Instauth Virgo charm install hook"
+
+BUILDPACK=$CHARM_DIR/vendor/virgo-buildpack
+
+# Uninstall Ruby 1.8
+# gem1.8 list | cut -d" " -f1 | xargs sudo gem1.8 uninstall -aIx
+# sudo apt-get remove libruby1.8 ruby1.8 ruby1.8-dev rubygems1.8
+#dpkg --get-selections |grep ruby
+
+apt-get install -y ruby1.9.3 make unzip git
+
+gem install bundler
+bundle install --gemfile $BUILDPACK/Gemfile
+
+# Grab Vanilla from upstream.
+juju-log "Invoking the Virgo buildpack compile script"
+
+if [ -f /var/www/virgo ]; then
+  rm -rf /var/www/virgo
+fi
+
+mkdir -p /var/www/virgo
+
+juju-log "TODO - Replace the overlay-sample with overlay-instauth - see https://github.com/instauth/instauth-charm/issues/1"
+cp -r vendor/virgo-buildpack/overlay-sample/* /var/www/virgo
+
+# Get buildpack debug logging
+export JBP_LOG_LEVEL=DEBUG
+
+$BUILDPACK/bin/compile /var/www/virgo /tmp
+
+$BUILDPACK/bin/release /var/www/virgo >/var/www/virgo/start.sh
+
+chmod +x /var/www/virgo/start.sh
+
+juju-log "Instauth Virgo installed in /var/www/virgo"

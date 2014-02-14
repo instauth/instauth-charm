@@ -1,0 +1,6 @@
+[submodule "virgo-buildpack"]
+	path = virgo-buildpack
+	url = git@github.com:glyn/virgo-buildpack.git
+[submodule "vendor/virgo-buildpack"]
+	path = vendor/virgo-buildpack
+	url = git@github.com:glyn/virgo-buildpack.git

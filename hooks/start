@@ -1,4 +1,14 @@
 #!/bin/bash
-# Here put anything that is needed to start the service.
-# Note that currently this is run directly after install
-# i.e. 'service apache2 start'
+
+set -e # If any command fails, stop execution of the hook with that error
+
+PORT=8080
+juju-log "Opening port $1 for Instauth Virgo"
+open-port $PORT
+
+juju-log "Starting Instauth Virgo"
+
+cd /var/www/virgo
+juju-log "TODO: drop root privileges - see https://github.com/glyn/virgo-charm/issues/6"
+JAVA_HOME=$PWD/.java JAVA_OPTS="-Dhttp.port=$PORT -XX:MaxPermSize=64M -XX:OnOutOfMemoryError=./.buildpack-diagnostics/killjava" nohup .virgo/bin/startup.sh -clean&
+echo $! >/var/www/virgo/.pid
